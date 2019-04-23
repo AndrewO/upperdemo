@@ -24,7 +24,10 @@
                     withAWS(credentials: 'jenkins', region: 'us-east-1') {
                         s3Upload(file: 'master.zip',
                             bucket: 'andrewo-upperdemo-input',
-                            contentEncoding: 'zip')
+                            contentEncoding: 'zip',
+                            metadatas: [
+                                "git_commit:${env.GIT_COMMIT}"
+                            ])
                     }
                 }
             }
