@@ -1,7 +1,10 @@
 inputs=$(wildcard input/*.txt)
 outputs=$(subst input,output,$(inputs))
 
-all: $(outputs)
+all: output/ $(outputs)
+
+output/:
+	mkdir -p output
 
 output/%.txt: input/%.txt
 	tr [a-z] [A-Z] < $< > $@
@@ -9,4 +12,4 @@ output/%.txt: input/%.txt
 .PHONY: clean
 
 clean:
-	rm -f $(outputs)
+	rm -rf output

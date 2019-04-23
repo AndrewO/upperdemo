@@ -5,5 +5,5 @@ phases:
       - make
 artifacts:
   files:
-    - 'outputs/*.txt'
+    - 'output/*.txt'
   discard-paths: true
